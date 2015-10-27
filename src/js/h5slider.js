@@ -36,6 +36,9 @@
         $item.next().css('-webkit-transform', 'translate3d(0,0,0)')
 
         _this.orderPart($item.next())
+      }else{
+        $item.css('-webkit-transform', 'scale(1)');
+        $item.next().css('-webkit-transform', 'translate3d(0,100%,0)');
       }
       
     }
@@ -47,6 +50,9 @@
         //Effect
         $item.css('-webkit-transform', 'translate3d(0,100%,0)')
         $item.prev().css('-webkit-transform', 'translate3d(0,0,0)')
+      }else{
+        $item.css('-webkit-transform', 'scale(1)');
+        $item.next().css('-webkit-transform', 'translate3d(0,100%,0)');
       }
 
     }
@@ -55,6 +61,7 @@
       console.log(this)
       this.attrs.$el.on('swipeUp', {_this: this} ,this._swipeUp)
       this.attrs.$el.on('swipeDown', {_this: this} , this._swipDown)
+      $(document).on('touchmove',function(e){e.preventDefault();});
     }
 
     this._initDom = function(){
